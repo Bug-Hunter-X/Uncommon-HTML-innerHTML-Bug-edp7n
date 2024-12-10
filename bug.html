@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    // Incorrectly using innerHTML to set a value that contains HTML tags
+    document.getElementById("myDiv").innerHTML = "<p>This is a paragraph.</p><p>This is another paragraph.</p>";
+
+    // Correctly using innerHTML to set a value that contains HTML tags
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = "<p>This is a paragraph.</p><p>This is another paragraph.</p>";
+    document.getElementById("myDiv").appendChild(newDiv);
+  </script>
+</body>
+</html>
